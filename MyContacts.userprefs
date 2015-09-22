@@ -1,0 +1,14 @@
+﻿<Properties StartupItem="MyContacts/MyContacts.Droid/MyContacts.Droid.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 5- Lollipop" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="MyContacts/MyContacts/AllContacts.xaml">
+    <Files>
+      <File FileName="MyContacts/MyContacts/AllContacts.xaml" Line="11" Column="70" />
+      <File FileName="MyContacts/MyContacts/AllContacts.xaml.cs" Line="31" Column="1" />
+      <File FileName="MyContacts/MyContacts/Data/Person.cs" Line="21" Column="44" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

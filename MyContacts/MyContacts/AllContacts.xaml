@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:local="clr-namespace:MyContacts;assembly=MyContacts"
+    x:Class="MyContacts.AllContacts"
+    Title="Contacts"
+    Padding="5">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ImageResourceConverter x:Key="imageResourceCvt" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ListView x:Name="allContacts" ItemsSource="{Binding .}" 
+                ItemTapped="OnItemTapped" 
+                ItemSelected="OnItemSelected"
+                IsGroupingEnabled="true"
+                GroupDisplayBinding="{Binding Key}"
+                GroupShortNameBinding="{Binding Key}"
+                HasUnevenRows="true">
+
+        <ListView.GroupHeaderTemplate>
+            <DataTemplate>
+                <ViewCell Height="25">
+                    <StackLayout Orientation="Horizontal">
+                        <StackLayout.BackgroundColor>
+                            <OnPlatform x:TypeArguments="Color" iOS="Black" Android="Accent" WinPhone="White" />
+                        </StackLayout.BackgroundColor>
+                        <Label Text="{Binding Key}" VerticalOptions="Center" FontSize="Medium">
+                            <Label.TextColor>
+                                <OnPlatform x:TypeArguments="Color" iOS="White" Android="White" WinPhone="Gray" />
+                            </Label.TextColor>
+                        </Label>
+                        <Label Text="{Binding Count, StringFormat=' - {0} items'}" VerticalOptions="Center" FontSize="Medium">
+                            <Label.TextColor>
+                                <OnPlatform x:TypeArguments="Color" iOS="White" Android="White" WinPhone="Gray" />
+                            </Label.TextColor>
+                        </Label>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.GroupHeaderTemplate>
+
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell Height="80">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="75" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="5" />
+                        </Grid.ColumnDefinitions>
+
+                        <BoxView BackgroundColor="White" Grid.Column="0" />
+                        <Image WidthRequest="75" HeightRequest="75" Aspect="AspectFit"
+                               VerticalOptions="Center"
+                               Source="{Binding HeadshotUrl, Converter={StaticResource imageResourceCvt}}" />
+
+                        <StackLayout Grid.Column="1">
+                            <Label Text="{Binding Name}" FontSize="Medium" FontAttributes="Bold" />
+                            <Label Text="{Binding Email}" FontSize="Small" TextColor="Accent" />
+                        </StackLayout>
+
+                        <Label Text="{Binding Title}" 
+                                HorizontalOptions="End" VerticalOptions="End"
+                                Grid.Column="1" Grid.ColumnSpan="2"
+                                FontSize="Micro" TextColor="Accent" /> 
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+
+</ContentPage>
