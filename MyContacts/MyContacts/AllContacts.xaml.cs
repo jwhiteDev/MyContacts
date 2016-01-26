@@ -8,9 +8,6 @@ namespace MyContacts
 	{    
 	    public AllContacts ()
 	    {
-//            BindingContext = EmployeeFactory.Characters
-//                .OrderBy(c => c.Name)
-//                .GroupBy(c => c.Name[0].ToString(), c => c);
 
             // Create the grouping.
             // This will be a List<Linq.IGrouping<string, Person>>, where "string" is the grouping key and "Person" is a list (an IGrouping) of objects.
